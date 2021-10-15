@@ -9,10 +9,6 @@ public class Calculator {
         int operand1;
         int operand2;
         String sign;
-        String a = "+";
-        String b = "-";
-        String c = "*";
-        String d = "/";
 
         System.out.print("operand1 = ");
         operand1 = scan.nextInt();
