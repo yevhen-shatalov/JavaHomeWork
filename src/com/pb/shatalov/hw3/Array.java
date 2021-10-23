@@ -9,7 +9,6 @@ public class Array {
         Scanner input = new Scanner(System.in);
         int[] array = new int[10];
         int x = 0;
-        int max = 0;
         int counter = 0;
 
         for (int i = 0; i < array.length; i++) {
