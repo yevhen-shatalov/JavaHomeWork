@@ -24,8 +24,8 @@ public class Bingo {
                 System.out.println("Good bye");
                 break;
             }
-                //проверка, если оставалась последняя попытка и пользоватеть отгадал верно
             a = Integer.parseInt(b);
+                //проверка, если оставалась последняя попытка и пользоватеть отгадал верно
             if (counter == 9 && a == x) {
                 System.out.println("Вы угадали с " + counter + " попытки");
                 break;
