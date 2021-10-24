@@ -48,8 +48,7 @@ public class Anagram {
         for (int h = 0; h < m; h++) {
             input2 = (input2 + b[h] + "");
                 }
-        //Сравнение. Работает, но есть нюансы.
-        //int z = input1.compareToIgnoreCase(input2);
+        //Сравнение
         if (input1.equals(input2)) {
             System.out.println("Это анаграммы");
         } else {
