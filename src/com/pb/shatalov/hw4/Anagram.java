@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Anagram {
     public static void main(String[] args) {
+        System.out.println("Введите фразы или слова:");
         gram();
     }
 
@@ -14,8 +15,8 @@ public class Anagram {
         String in1 = in.nextLine();
         String in2 = in.nextLine();
         //Отсеивание знаков препинания и пробелов
-        String input1 = in1.replaceAll("[\\W]","");
-        String input2 = in2.replaceAll("[\\W]","");
+        String input1 = in1.replaceAll("\\s|[^А-Яа-яA-Za-z]","");
+        String input2 = in2.replaceAll("\\s|[^А-Яа-яA-Za-z]","");
         char[] a = input1.toCharArray();
         char[] b = input2.toCharArray();
         //Сортировка по порядку 1 строки
@@ -27,8 +28,10 @@ public class Anagram {
                     a[j] = a[j + 1];
                     a[j + 1] = temp;
                 }
-                for (int k = 0; k < n; k++) {
-                    input1 = (a[k] + "");
+        //очиска перемнной и присвоение отсортированной строки
+        input1 = ("");
+        for (int k = 0; k < n; k++) {
+            input1 = (input1 + a[k] + "");
                 }
         System.out.print("\n");
         //Сортировка по порядку 2 строки
@@ -40,12 +43,14 @@ public class Anagram {
                     b[j] = b[j + 1];
                     b[j + 1] = temp;
                 }
-                for (int k = 0; k < m; k++) {
-                    input2 = (a[k] + "");
+        //очиска перемнной и присвоение отсортированной строки
+        input2 = ("");
+        for (int h = 0; h < m; h++) {
+            input2 = (input2 + b[h] + "");
                 }
-        //Сравнение
-        int z = input1.compareToIgnoreCase(input2);
-        if (z == 0) {
+        //Сравнение. Работает, но есть нюансы.
+        //int z = input1.compareToIgnoreCase(input2);
+        if (input1.equals(input2)) {
             System.out.println("Это анаграммы");
         } else {
             System.out.println("Это не анаграммы");
