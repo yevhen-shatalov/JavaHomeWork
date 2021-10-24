@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Anagram {
     public static void main(String[] args) {
         gram();
-
     }
 
     static void gram() {
@@ -14,12 +13,12 @@ public class Anagram {
 
         String in1 = in.nextLine();
         String in2 = in.nextLine();
-
+        //Отсеивание знаков препинания и пробелов
         String input1 = in1.replaceAll("[\\W]","");
         String input2 = in2.replaceAll("[\\W]","");
         char[] a = input1.toCharArray();
         char[] b = input2.toCharArray();
-        //Сортировка первой строки
+        //Сортировка по порядку 1 строки
         int n = a.length;
         for (int i = 0; i < n - 1; i++)
             for (int j = 0; j < n - 1; j++)
@@ -28,13 +27,11 @@ public class Anagram {
                     a[j] = a[j + 1];
                     a[j + 1] = temp;
                 }
-                //Вывод по порядку 1 строки
                 for (int k = 0; k < n; k++) {
                     input1 = (a[k] + "");
-                    System.out.print(input1);
                 }
         System.out.print("\n");
-        //Сортировка второй строки
+        //Сортировка по порядку 2 строки
         int m = b.length;
         for (int i = 0; i < m - 1; i++)
             for (int j = 0; j < m - 1; j++)
@@ -43,14 +40,10 @@ public class Anagram {
                     b[j] = b[j + 1];
                     b[j + 1] = temp;
                 }
-                //Выаод по порядку 2 строки
                 for (int k = 0; k < m; k++) {
                     input2 = (a[k] + "");
-                    System.out.print(input2);
                 }
-                //Сравнение
-                System.out.print("\n");
-
+        //Сравнение
         int z = input1.compareToIgnoreCase(input2);
         if (z == 0) {
             System.out.println("Это анаграммы");
