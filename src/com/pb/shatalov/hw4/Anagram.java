@@ -16,8 +16,8 @@ public class Anagram {
         String in1 = in.nextLine();
         String in2 = in.nextLine();
         //Отсеивание знаков препинания и пробелов, перевод в нижний регистр
-        String input1 = in1.replaceAll("\\s|[^А-Яа-яA-Za-z]","").toLowerCase();
-        String input2 = in2.replaceAll("\\s|[^А-Яа-яA-Za-z]","").toLowerCase();
+        String input1 = in1.replaceAll("\\s|[^А-Яа-яA-Za-z0-9]","").toLowerCase();
+        String input2 = in2.replaceAll("\\s|[^А-Яа-яA-Za-z0-9]","").toLowerCase();
         char[] a = input1.toCharArray();
         char[] b = input2.toCharArray();
         //Сортировка по порядку 1 строки
