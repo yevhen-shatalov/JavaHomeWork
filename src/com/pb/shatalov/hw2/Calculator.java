@@ -6,8 +6,9 @@ public class Calculator {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
-        int operand1;
-        int operand2;
+        float operand1;
+        float operand2;
+        float result;
         String sign;
 
         System.out.print("operand1 = ");
@@ -33,10 +34,13 @@ public class Calculator {
                 if (operand2==0) {
                 System.out.println("на ноль делить нельзя");
             } else{
-                System.out.println(operand1/operand2);
+                    result = operand1/operand2;
+                System.out.println(result);
             }
                 break;
 
+            default:
+                throw new IllegalStateException("Unexpected value: " + sign);
         }
     }
 }

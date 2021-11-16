@@ -13,7 +13,6 @@ public class VetcCinic {
        // Class clazz = Class.forName("com.pb.shatalov.hw6.Veterenerian");
        // Object vet = clazz.newInstance();
 
-
         Animal[] anmls = new Animal[] {dog, cat, horse};
         for (Animal a: anmls) {
             vet.treatAnimal(a);

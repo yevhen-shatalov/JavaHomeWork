@@ -12,7 +12,6 @@ public class Animal {
         this.location = location;
         this.breed = breed;
     }
-
     public Animal() {
     }
 
