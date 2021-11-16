@@ -7,8 +7,6 @@ public enum Size {
     M("взрослый", 38),
     L("взрослый", 40);
 
-
-
     private String description;
     private int euroSize;
 
@@ -17,10 +15,19 @@ public enum Size {
         this.euroSize = euroSize;
     }
 
-    private String getDescription() {
+    public String getDescription() {
         return description;
-        }
-    private int getEuroSize() {
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getEuroSize() {
         return euroSize;
+    }
+
+    public void setEuroSize(int euroSize) {
+        this.euroSize = euroSize;
     }
 }
