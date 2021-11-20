@@ -33,6 +33,7 @@ public class Auth {
            if (tempLogin.toCharArray().length < 5 || tempLogin.toCharArray().length > 20)
             throw new WrongLoginExeption(login);
                 else setLogin(tempLogin);
+
         System.out.println("Придумайте пароль: ");
         String tempPass = scan.next();
         boolean latinPas = tempPass.matches("^[a-zA-Z0-9_]+$");
@@ -40,6 +41,7 @@ public class Auth {
             throw new WrongPasswordExeption(login);
             if (tempPass.toCharArray().length < 5)
                throw new WrongPasswordExeption(login);
+
         System.out.println("Повторите пароль: ");
         String tempPass2 = scan.next();
         if (tempPass2.equals(tempPass)) {
