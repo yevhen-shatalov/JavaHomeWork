@@ -39,7 +39,7 @@ public class Auth {
         if (latinPas != true)
             throw new WrongPasswordExeption(login);
             if (tempPass.toCharArray().length < 5)
-               throw new WrongLoginExeption(login);
+               throw new WrongPasswordExeption(login);
         System.out.println("Повторите пароль: ");
         String tempPass2 = scan.next();
         if (tempPass2.equals(tempPass)) {

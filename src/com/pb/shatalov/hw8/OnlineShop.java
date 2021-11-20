@@ -8,7 +8,7 @@ public class OnlineShop {
             auth.signUp();
             System.out.println("Введите ваш логин и пароль");
             auth.signIn();
-        } catch (WrongLoginExeption|WrongPasswordExeption e) {
+        } catch (WrongLoginExeption | WrongPasswordExeption e) {
             System.out.println("ошибка ввода " + e);
         }
     }
