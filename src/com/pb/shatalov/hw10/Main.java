@@ -10,10 +10,8 @@ public class Main {
             numBox.set(2, new Float(55));
             numBox.set(3, new Float(855));
 
-            Number dig1 = numBox.get(0); Number dig2 = numBox.get(1);
-            Number dig3 = numBox.get(2); Number dig4 = numBox.get(3);
-            System.out.print(dig1.get()+", "); System.out.print(dig2.get()+", ");
-            System.out.print(dig3.get()+", "); System.out.println(dig4.get());
+            System.out.print(numBox.get(0)+", "); System.out.print(numBox.get(1)+", ");
+            System.out.print(numBox.get(2)+", "); System.out.println(numBox.get(3));
 
             System.out.println("Количество элементов: " + numBox.length());
             numBox.average();
