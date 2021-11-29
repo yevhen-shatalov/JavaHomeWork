@@ -1,8 +1,8 @@
 package com.pb.shatalov.hw10;
 
-public class Float extends Number{
+public class Integer extends Number{
 
-    protected Float(int value) {
+    protected Integer(int value) {
         super(value);
     }
     private double doubleValue(int x) {
