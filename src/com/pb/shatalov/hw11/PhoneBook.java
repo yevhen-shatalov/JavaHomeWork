@@ -43,10 +43,6 @@ public class PhoneBook {
 
     //SortPhonebook - сортирует и выводит на екран
     public static void SortPhonebook(){
-//        System.out.println("Телефонный справочник: ");
-//        for(Map.Entry<String,String> k: pb.entrySet()){
-//            System.out.println(k.getValue()+": "+ k.getKey());
-//        }
         Map sortedMap = sortByValues(pb);
         for (Map.Entry k : (Set<Map.Entry>) sortedMap.entrySet()) {
             System.out.println("name: " + k.getValue() + ", number: " + k.getKey());
