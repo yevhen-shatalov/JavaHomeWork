@@ -26,7 +26,7 @@ public class PhoneBook {
         writer.close();
     }
 
-    //loadPB - загружает БД из текстового файла phone.txt
+    //loadPB - загружает из текстового файла phone.txt
     //производит проверку на наличие файла
     public static void loadPB() throws IOException {
         File file = new File("phone.txt");
