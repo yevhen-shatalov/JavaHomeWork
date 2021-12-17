@@ -48,7 +48,7 @@ public class PhoneBook {
         }
     }
 
-    //FindSurname - производит поиск фамилии по номеру телефона заданому в качестве аргумента
+    //FindSurname - поиск фамилии по номеру телефона
     //возвращает строку
     public static String FindSurname(String number){
         String result = pb.get(number);
@@ -56,7 +56,7 @@ public class PhoneBook {
         return result;
     }
 
-    //FindNumberPhone - производит поиск списка номеров по фамилии заданой в качестве аргумента
+    //FindNumberPhone - поиск номеров по фамилии
     //возвращает массив строк
     public static String[] FindNumberPhone(String surname){
         List <String> result = new ArrayList<String>();
