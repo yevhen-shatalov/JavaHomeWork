@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.*;
 import java.io.*;
 
-public class Phone {
+public class PhoneBook {
 
     private static void saveContacts(Map<String, List<String>> contacts) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(new File("phone.txt")));
