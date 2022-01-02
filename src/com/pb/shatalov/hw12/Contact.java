@@ -77,4 +77,5 @@ public class Contact {
     public int hashCode() {
         return Objects.hash(name, dateOfBirth, phoneNumbers, address, changeTime);
     }
+
 }

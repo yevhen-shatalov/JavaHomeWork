@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class PhoneBook {
     private static List<Contact> contacts = new ArrayList<>();
@@ -103,12 +104,16 @@ public class PhoneBook {
     public void findContact() {
         System.out.println("Введите часть ФИО: ");
         String name = scan.nextLine();
-        List<Contact> foundContacts = new ArrayList<>();
-        for (Contact c : contacts) {
-            if (c.getName().contains(name)) {
-                foundContacts.add(c);
-            }
-        }
+        List<Contact> foundContacts = contacts.stream()
+                .filter(contact -> contact.getName().contains(name))
+                .collect(Collectors.toList());
+
+//        List<Contact> foundContacts = new ArrayList<>();
+//        for (Contact c : contacts) {
+//            if (c.getName().contains(name)) {
+//                foundContacts.add(c);
+//            }
+//        }
         printContacts(foundContacts);
     }
 
@@ -126,66 +131,72 @@ public class PhoneBook {
         }
     }
     private Contact findContactByName(String name) {
-        for (Contact contact : contacts) {
-            if (name.equals(contact.getName())) {
-                return contact;
-            }
-        }
-        return null;
+        Contact foundContacts = new Contact();
+        foundContacts = contacts.stream()
+                .filter(contact -> contact.getName().equals(name))
+                .findAny().get();
+
+//        for (Contact contact : contacts) {
+//            if (name.equals(contact.getName())) {
+//                return contact;
+//            }
+//        }
+        return foundContacts;
     }
 
     public void editContact() {
-        System.out.println("Введите фио контакта для редактирования: ");
-        String name = scan.nextLine();
-        Contact contact = findContactByName(name);
-        if (contact == null) {
-            System.out.println("Контакт не найден");
-            return;
-        }
-        while (true) {
-            printContacts(Collections.singletonList(contact));
-            System.out.println("Редактировать");
-            System.out.println("1. ФИО");
-            System.out.println("2. Дату рождения");
-            System.out.println("3. Телефоны");
-            System.out.println("4. Адрес");
-            System.out.println("5. Выход");
-            String input = scan.nextLine();
-            switch (input) {
-                case "1":
-                    System.out.println("Введите ФИО: ");
-                    String name_ = scan.nextLine();
-                    contact.setName(name_);
-                    contact.setChangeTime(LocalDate.now());
-                    break;
-                case "2":
-                    System.out.println("Введите дату рождения (пример 2007-12-03): ");
-                    String date = scan.nextLine();
-                    contact.setDateOfBirth(LocalDate.parse(date));
-                    contact.setChangeTime(LocalDate.now());
-                    break;
-                case "3":
-                    System.out.println("Редактирования телефонов");
-                    editPhoneNumbers(contact);
-                    break;
-                case "4":
-                    System.out.println("Введите адрес: ");
-                    String address = scan.nextLine();
-                    contact.setAddress(address);
-                    contact.setChangeTime(LocalDate.now());
-                    break;
-                default:
-                    return;
+        try {
+            System.out.println("Введите фио контакта для редактирования: ");
+            String name = scan.nextLine();
+            Contact contact = findContactByName(name);
+            if (contact == null) {
+                System.out.println("Контакт не найден");
+                return;
             }
+            while (true) {
+                printContacts(Collections.singletonList(contact));
+                System.out.println("Редактировать");
+                System.out.println("1. ФИО");
+                System.out.println("2. Дату рождения");
+                System.out.println("3. Телефоны");
+                System.out.println("4. Адрес");
+                System.out.println("5. Выход");
+                String input = scan.nextLine();
+                switch (input) {
+                    case "1":
+                        System.out.println("Введите ФИО: ");
+                        String name_ = scan.nextLine();
+                        contact.setName(name_);
+                        contact.setChangeTime(LocalDate.now());
+                        break;
+                    case "2":
+                        System.out.println("Введите дату рождения (пример 2007-12-03): ");
+                        String date = scan.nextLine();
+                        contact.setDateOfBirth(LocalDate.parse(date));
+                        contact.setChangeTime(LocalDate.now());
+                        break;
+                    case "3":
+                        System.out.println("Редактирования телефонов");
+                        editPhoneNumbers(contact);
+                        break;
+                    case "4":
+                        System.out.println("Введите адрес: ");
+                        String address = scan.nextLine();
+                        contact.setAddress(address);
+                        contact.setChangeTime(LocalDate.now());
+                        break;
+                    default:
+                        return;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("ошибка ввода, попробуйте ещё раз");
         }
     }
+
+
         public void sortContacts () {
-            contacts.sort(new Comparator<Contact>() {
-                @Override
-                public int compare(Contact c1, Contact c2) {
-                    return c1.getName().compareTo(c2.getName());
-                }
-            });
+            contacts.sort(Comparator.comparing(Contact::getName));
             printContacts(contacts);
         }
 
