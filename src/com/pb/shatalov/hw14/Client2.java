@@ -82,7 +82,6 @@ public class Client2 {
                     out.flush(); // чистим
                 } catch (IOException e) {
                 }
-
             }
         }
     }
