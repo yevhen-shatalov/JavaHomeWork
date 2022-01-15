@@ -1,15 +1,13 @@
-package com.pb.shatalov.hw14;
+package com.pb.shatalov.hw15;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.LinkedList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class Server {
+public class ServerGUI {
 
     public static LinkedList<Handler> clients = new LinkedList<>();
 
